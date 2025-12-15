@@ -32,20 +32,25 @@ Proyek ini bertujuan untuk memprediksi konsumsi daya listrik (Power Consumption)
 ```
 project/
 │
-├── data/                   # Dataset (tidak di-commit, download manual)
+├── data/                   # Dataset & Hasil Evaluasi
+│   ├── tetouan_power_raw.csv        # Dataset mentah
+│   └── model_comparison_results.csv # Tabel hasil evaluasi
 │
-├── notebooks/              # Jupyter notebooks
-│   └── ML_Project.ipynb
+├── notebooks/              # Jupyter Notebook utama
+│   └── Tetouan_Power_Prediction.ipynb
 │
-├── src/                    # Source code
+├── src/                    # Source code .py
 │   
-├── models/                 # Saved models
-│   ├── model_baseline.pkl
-│   ├── model_rf.pkl
-│   └── model_cnn.h5
+├── models/                 # Model Artifacts
+│   ├── scaler.pkl                   # Preprocessing scaler
+│   ├── model_baseline.pkl           # Model 1: Linear Regression
+│   ├── model_rf.pkl                 # Model 2: Random Forest
+│   └── model_dl_final.h5            # Model 3: Deep Learning
 │
-├── images/                 # Visualizations
-│   └── r
+├── images/                 # Output Visualisasi
+│   ├── comparison_error_metrics.png
+│   ├── comparison_r2_score.png
+│   └── eda_target_distribution.png
 │
 ├── requirements.txt        # Dependencies
 ├── .gitignore
