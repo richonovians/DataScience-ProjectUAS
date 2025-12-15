@@ -1,29 +1,31 @@
 # 📘 Judul Proyek
-*(Isi judul proyek Anda di sini)*
+*Analisis dan Prediksi Konsumsi Energi Listrik Kota Tetouan Menggunakan Pendekatan Machine Learning dan Deep Learning*
 
 ## 👤 Informasi
-- **Nama:** [...]  
-- **Repo:** [...]  
+- **Nama:** Richo Novian Saputra  
+- **Repo:** https://github.com/richonovians/DataScience-ProjectUAS 
 - **Video:** [...]  
 
 ---
 
 # 1. 🎯 Ringkasan Proyek
-- Menyelesaikan permasalahan sesuai domain  
-- Melakukan data preparation  
-- Membangun 3 model: **Baseline**, **Advanced**, **Deep Learning**  
-- Melakukan evaluasi dan menentukan model terbaik  
+Proyek ini bertujuan untuk memprediksi konsumsi daya listrik (Power Consumption) di **Zone 1** Kota Tetouan menggunakan data deret waktu (*time series*).
+- Menyelesaikan permasalahan prediksi beban listrik (*load forecasting*) untuk efisiensi energi di Kota Tetouan.
+- Melakukan *data preparation* mencakup *cleaning*, *chronological splitting*, dan *feature engineering* (terutama Lag Features).
+- Membangun dan membandingkan 3 model: **Linear Regression (Baseline)**, **Random Forest (Advanced)**, dan **Deep Learning (MLP)**.
+- Melakukan evaluasi komprehensif menggunakan RMSE, MAE, dan R² Score untuk menentukan pendekatan terbaik.
 
 ---
 
 # 2. 📄 Problem & Goals
 **Problem Statements:**  
-- [...]  
-- [...]  
+- Operator jaringan listrik menghadapi tantangan dalam menyeimbangkan pasokan dan permintaan energi secara *real-time*.
+- Ketidakakuratan prediksi dapat menyebabkan inefisiensi operasional, pemborosan energi, atau risiko kegagalan sistem (*blackout*).
 
 **Goals:**  
-- [...]  
-- [...]  
+- Membangun model prediksi konsumsi listrik (khususnya Zone 1) dengan target akurasi tinggi ($R^2 > 0.90$).
+- Menganalisis perbandingan performa antara model linear sederhana dengan model *Deep Learning* yang kompleks.
+- Mengidentifikasi variabel historis dan cuaca yang paling mempengaruhi pola konsumsi.
 
 ---
 ## 📁 Struktur Folder
@@ -52,57 +54,78 @@ project/
 ---
 
 # 3. 📊 Dataset
-- **Sumber:** [...]  
-- **Jumlah Data:** [...]  
-- **Tipe:** [...]  
+- **Sumber:** UCI Machine Learning Repository (Tetouan City Power Consumption).
+- **Jumlah Data:** 52.000 baris (Data time-series per 10 menit).
+- **Tipe:** Time Series Regression.
 
 ### Fitur Utama
 | Fitur | Deskripsi |
 |------|-----------|
-| ... | ... |
+| `DateTime` | Timestamp data. |
+| `Temperature` | Suhu rata-rata (°C). |
+| `Humidity` | Kelembaban (%). |
+| `Wind Speed` | Kecepatan angin (m/s). |
+| `Zone 1 Power` | **Target** (Konsumsi Listrik KW). |
+| `lag_1` | Konsumsi listrik 1 jam yang lalu (Feature Engineering). |
+| `lag_24` | Konsumsi listrik jam yang sama kemarin (Feature Engineering). |
 
 ---
 
 # 4. 🔧 Data Preparation
-- Cleaning (missing/duplicate/outliers)  
-- Transformasi (encoding/scaling)  
-- Splitting (train/val/test)  
+- **Cleaning:** Menghapus *missing values* (NaN) yang terbentuk akibat proses *lagging*.
+- **Transformasi:**
+  - *Feature Engineering:* Membuat fitur waktu (Hour, Month, DayOfWeek) dan fitur historis (Lag & Rolling Mean).
+  - *Scaling:* Standard Scaling (Z-score).
+- **Splitting:** Menggunakan *Chronological Split* (80% Train, 20% Test) untuk mencegah kebocoran data masa depan (*data leakage*).
 
 ---
 
 # 5. 🤖 Modeling
-- **Model 1 – Baseline:** [...]  
-- **Model 2 – Advanced ML:** [...]  
-- **Model 3 – Deep Learning:** [...]  
+- **Model 1 – Baseline:** **Linear Regression**. Model sederhana untuk menangkap hubungan linear kuat dari fitur *lag*.
+- **Model 2 – Advanced ML:** **Random Forest Regressor**. Model *ensemble* dengan *Hyperparameter Tuning* (`n_estimators`, `max_depth`) menggunakan RandomizedSearchCV.
+- **Model 3 – Deep Learning:** **Multi-Layer Perceptron (MLP)**. Arsitektur Neural Network (256-128-64 neuron) dengan Dropout dan Learning Rate Scheduler.
 
 ---
 
 # 6. 🧪 Evaluation
-**Metrik:** Accuracy / F1 / MAE / MSE (pilih sesuai tugas)
+**Metrik:** RMSE (Root Mean Squared Error), MAE (Mean Absolute Error), dan R² Score.
 
 ### Hasil Singkat
-| Model | Score | Catatan |
+| Model | Score (R²) | Catatan |
 |-------|--------|---------|
-| Baseline | [...] | |
-| Advanced | [...] | |
-| Deep Learning | [...] | |
+| **Baseline (LR)** | **0.995** | **Model Terbaik**. Sangat cepat dan akurat. |
+| Advanced (RF) | 0.981 | Sedikit *overfitting* / sulit menangkap tren linear halus. |
+| Deep Learning | 0.994 | Performa sangat kompetitif, mendekati baseline. |
+
+*(Nilai RMSE terendah juga diraih oleh Baseline: 457 KW)*
 
 ---
 
 # 7. 🏁 Kesimpulan
-- Model terbaik: [...]  
-- Alasan: [...]  
-- Insight penting: [...]  
+- **Model terbaik:** **Linear Regression (Baseline)**.
+- **Alasan:** Fitur historis (`lag_1`) memiliki korelasi linear yang sangat kuat dengan target. Model sederhana mampu menangkap pola ini secara efektif tanpa kompleksitas berlebih.
+- **Insight penting:** Dalam prediksi jangka pendek (*short-term forecasting*), rekayasa fitur (*feature engineering*) seringkali lebih berdampak signifikan daripada kompleksitas algoritma model.
 
 ---
 
 # 8. 🔮 Future Work
-- [ ] Tambah data  
-- [ ] Tuning model  
-- [ ] Coba arsitektur DL lain  
-- [ ] Deployment  
+- [ ] Tambah data (Hari libur nasional/Event khusus).
+- [ ] Tuning model (Coba algoritma XGBoost/LightGBM).
+- [ ] Coba arsitektur DL lain (LSTM/GRU untuk *sequence modeling*).
+- [ ] Deployment (Buat API dengan FastAPI/Streamlit).
 
 ---
 
 # 9. 🔁 Reproducibility
-Gunakan environment:
+Gunakan environment dengan menjalankan `pip install -r requirements.txt`. Berikut versi utama yang digunakan:
+
+```text
+ucimlrepo==0.0.7
+numpy==2.0.2
+pandas==2.2.2
+scikit-learn==1.6.1
+matplotlib==3.10.0
+seaborn==0.13.2
+tensorflow==2.19.0
+joblib==1.5.2
+xgboost==3.1.2
