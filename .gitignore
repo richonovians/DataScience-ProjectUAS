@@ -17,10 +17,10 @@ data/*.zip
 
 # TRAINED MODELS (Artifacts)
 # Max 100MB. 
-models/*.h5
-models/*.pkl
-models/*.keras
-models/*.joblib
+# models/*.h5
+# models/*.pkl
+# models/*.keras
+# models/*.joblib
 
 # IDE & OS System Files
 # VS Code / PyCharm settings
