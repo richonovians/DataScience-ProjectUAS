@@ -121,10 +121,10 @@ project/
 ---
 
 # 8. 🔮 Future Work
-- [ ] Tambah data (Hari libur nasional/Event khusus).
-- [ ] Tuning model (Coba algoritma XGBoost/LightGBM).
-- [ ] Coba arsitektur DL lain (LSTM/GRU untuk *sequence modeling*).
-- [ ] Deployment (Buat API dengan FastAPI/Streamlit).
+- [x] Tambah data (Hari libur nasional/Event khusus).
+- [x] Tuning model (Coba algoritma XGBoost/LightGBM).
+- [x] Coba arsitektur DL lain (LSTM/GRU untuk *sequence modeling*).
+- [x] Deployment (Buat API dengan FastAPI/Streamlit).
 
 ---
 
