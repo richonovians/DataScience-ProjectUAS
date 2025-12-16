@@ -50,10 +50,18 @@ project/
 ├── images/                 # Output Visualisasi
 │   ├── comparison_error_metrics.png
 │   ├── comparison_r2_score.png
-│   └── eda_target_distribution.png
+│   ├── eda_correlation_heatmap.png
+│   ├── eda_target_distribution.png
+│   ├── eval_prediction_comparison.png
+│   ├── model_dl_training_history.png
+│   ├── model_lr_actual_vs_pred.png
+│   └── model_rf_feature_importance.png
 │
 ├── requirements.txt        # Dependencies
 ├── .gitignore
+├── Checklist Submit.md
+├── LICENSE
+├── Laporan Proyek Machine Learning.pdf
 └── README.md
 ```
 ---
