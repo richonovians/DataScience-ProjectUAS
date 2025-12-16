@@ -33,11 +33,11 @@ Proyek ini bertujuan untuk memprediksi konsumsi daya listrik (Power Consumption)
 project/
 │
 ├── data/                   # Dataset & Hasil Evaluasi
-│   ├── tetouan_power_raw.csv        # Dataset mentah
+│   ├── tetouan_power_raw.csv
 │   └── model_comparison_results.csv # Tabel hasil evaluasi
 │
 ├── notebooks/              # Jupyter Notebook utama
-│   └── Tetouan_Power_Prediction.ipynb
+│   └── DataScience_ProyekMachineLearning.ipynb
 │
 ├── src/                    # Source code .py
 │   
