@@ -4,7 +4,7 @@
 ## 👤 Informasi
 - **Nama:** Richo Novian Saputra  
 - **Repo:** https://github.com/richonovians/DataScience-ProjectUAS 
-- **Video:** [...]  
+- **Video:** https://youtu.be/PwtCBIWj4sY   
 
 ---
 
