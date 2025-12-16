@@ -42,7 +42,6 @@ project/
 ├── src/                    # Source code .py
 │   
 ├── models/                 # Model Artifacts
-│   ├── scaler.pkl                   # Preprocessing scaler
 │   ├── model_baseline.pkl           # Model 1: Linear Regression
 │   ├── model_rf.pkl                 # Model 2: Random Forest
 │   └── model_dl_final.h5            # Model 3: Deep Learning
