@@ -68,6 +68,7 @@ project/
 
 # 3. 📊 Dataset
 - **Sumber:** UCI Machine Learning Repository (Tetouan City Power Consumption).
+  https://archive.ics.uci.edu/dataset/849/power+consumption+of+tetouan+city 
 - **Jumlah Data:** 52.000 baris (Data time-series per 10 menit).
 - **Tipe:** Time Series Regression.
 
