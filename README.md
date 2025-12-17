@@ -40,6 +40,7 @@ project/
 │   └── DataScience_ProyekMachineLearning.ipynb
 │
 ├── src/                    # Source code .py
+│   └── datascience_proyekmachinelearning.py
 │   
 ├── models/                 # Model Artifacts
 │   ├── model_baseline.pkl           # Model 1: Linear Regression
